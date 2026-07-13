@@ -672,18 +672,18 @@
   });
 
   document.getElementById('dotBtn').addEventListener('click', () => {
-    const s = state[currentMetal);
+    const s = state[currentMetal];
 
-    if (!s.quickActive) {
+         if (!s.quickActive) {
         weightBox.classList.add('shake');
         setTimeout(() => weightBox.classList.remove('shake'), 300);
         showToast('Tap "Quick Weight" first to enter weight');
         return;
     }
 
-    if (s.weight === '') {
-        s.weight = '0.';
-    } else if (!s.weight.includes('.')) {
+         if (s.weight === '') {
+        s.weight = '0.';  } 
+         else if (!s.weight.includes('.')) {
         s.weight += '.';
     }
 
