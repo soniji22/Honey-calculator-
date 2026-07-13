@@ -435,7 +435,7 @@
   }
 
   .key.equal {
-    grid-column: span 3;
+    grid-column: span 2;
     background: linear-gradient(160deg, #3a2f19, #221c14);
     border-color: var(--accent);
     color: var(--accent-bright);
@@ -539,7 +539,8 @@
       <div class="key fn quick" id="quickBtn">Quick<br>Weight</div>
 
       <div class="key zero" data-num="0">0</div>
-      <div class="key equal" id="equalBtn">=</div>
+<div class="key" id="dotBtn">.</div>
+<div class="key equal" id="equalBtn">=</div>
     </div>
   </div>
 </div>
@@ -669,6 +670,25 @@
       render();
     });
   });
+
+  document.getElementById('dotBtn').addEventListener('click', () => {
+    const s = state[currentMetal);
+
+    if (!s.quickActive) {
+        weightBox.classList.add('shake');
+        setTimeout(() => weightBox.classList.remove('shake'), 300);
+        showToast('Tap "Quick Weight" first to enter weight');
+        return;
+    }
+
+    if (s.weight === '') {
+        s.weight = '0.';
+    } else if (!s.weight.includes('.')) {
+        s.weight += '.';
+    }
+
+    render();
+});
 
   document.getElementById('backBtn').addEventListener('click', () => {
     const s = state[currentMetal];
